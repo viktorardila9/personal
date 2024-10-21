@@ -1,0 +1,306 @@
+"""
+Crea una clase vacía llamada «motocicleta».
+Todas las motocicletas del concesionario son nuevas. Por lo tanto, 
+vamos a añadir un atributo de clase para especificar ese valor 
+siempre en todas las motos.
+Ahora, crea el método __init__ vacío, con el que le daremos unos 
+valores a las nuevas instancias.
+Añade los siguientes parámetros al __init__:
+color.
+matricula.
+combustible_litros.
+numero_ruedas.
+marca.
+modelo.
+fecha_fabricacion.
+velocidad_punta.
+peso.
+
+Añade otro atributo de clase. Este va a ser «motor». Lo utilizaremos 
+con un valor booleano para especificar si el motor está en marcha o 
+detenido. True, en marcha. False, detenido. Por defecto, quiero que 
+todos los motores vengan detenidos.
+Crea dos métodos inteligentes, arrancar y detener que representarán 
+estas dos acciones con las motocicletas. Estos deben ser capaces de
+informar en la consola de las siguientes cosas.
+Método arrancar():
+
+Si el motor está detenido, se indica que el motor ha arrancado.
+Si el motor está ya en marcha y se intenta arrancar de nuevo, 
+se indica que el motor ya estaba en marcha.
+Método detener():
+
+Si el motor está en marcha, se indica que el motor se ha detenido.
+Si el motor está ya detenido, y se intenta detener de nuevo, 
+se indica que el motor ya estaba detenido.
+"""
+
+
+
+class Motocicleta:
+    # Atributo de clase
+    nueva = True
+    motor = False  # Por defecto, el motor está detenido
+
+    def __init__(self, color, matricula, combustible_litros, numero_ruedas, marca, modelo, fecha_fabricacion, velocidad_punta, peso):
+        self.color = color
+        self.matricula = matricula
+        self.combustible_litros = combustible_litros
+        self.numero_ruedas = numero_ruedas
+        self.marca = marca
+        self.modelo = modelo
+        self.fecha_fabricacion = fecha_fabricacion
+        self.velocidad_punta = velocidad_punta
+        self.peso = peso
+
+    # Método para arrancar la motocicleta
+    def arrancar(self):
+        if not Motocicleta.motor:
+            Motocicleta.motor = True
+            print("El motor ha arrancado.")
+        else:
+            print("El motor ya estaba en marcha.")
+
+    # Método para detener la motocicleta
+    def detener(self):
+        if Motocicleta.motor:
+            Motocicleta.motor = False
+            print("El motor se ha detenido.")
+        else:
+            print("El motor ya estaba detenido.")
+
+# Crear una instancia de Motocicleta
+moto = Motocicleta("roja", "1234", 10, 2, "yamaha", "Z2", "12-12-2001", 200, 180)
+
+moto.arrancar() # indica que el motor ha arrancado
+moto.arrancar() # el motor está ya en marcha
+
+moto.detener() # se indica que el motor se ha detenido
+moto.detener() # el motor está ya detenido
+
+"""
+Crea una clase llamada Coche que tenga los siguientes atributos de clase:
+
+nuevos: Un valor booleano que indica si todos los coches en el concesionario son nuevos (por defecto True).
+luces_encendidas: Un valor booleano que indique si las luces están encendidas o apagadas (por defecto False, es decir, luces apagadas).
+Luego, define el método __init__ con los siguientes parámetros para inicializar las instancias de la clase Coche:
+
+color
+matricula
+tipo_combustible
+numero_puertas
+marca
+modelo
+fecha_fabricacion
+velocidad_maxima
+peso
+También, debes crear los siguientes métodos:
+
+encender_luces(): Si las luces están apagadas, deben encenderse y se debe imprimir un mensaje indicando que las luces se han encendido. Si ya están encendidas, imprime que las luces ya estaban encendidas.
+
+apagar_luces(): Si las luces están encendidas, deben apagarse y se debe imprimir un mensaje indicando que las luces se han apagado. Si ya están apagadas, imprime que las luces ya estaban apagadas.
+
+
+"""
+
+
+class coche:
+    
+    nuevos = True
+    Luces = False
+    
+    def __init__(self, color, matricula, tipo_combustible, numero_puertas, marca, modelo, fecha_fabricacion, velocidad_maxima, peso):
+        self.color = color
+        self.maricula = matricula
+        self.tipo_combustible = tipo_combustible
+        self.numero_puertas = numero_puertas
+        self.marca = marca
+        self.modelo = modelo
+        self.fecha_fabricaion = fecha_fabricacion
+        self.velocidad_maxima = velocidad_maxima
+        self.peso = peso
+        
+    def encender_luces(self):
+        if coche.Luces:
+            coche.luces = True
+            print("las luces se han encendido")
+        else:
+            print("las luces están apagadas")
+            
+            
+coche1 = coche("verde", 1234, "gasolina", 4, "honda", "A14", "4-3-2022", 200, 160)
+
+coche1.encender_luces()
+
+
+"""
+Crea una clase llamada Lavadora que tenga los siguientes atributos de clase:
+
+carga_maxima: Un número que indica la capacidad máxima de la lavadora en kilogramos (valor por defecto: 8 kg).
+encendida: Un valor booleano que indica si la lavadora está encendida o apagada (por defecto False, es decir, apagada).
+Luego, define el método __init__ con los siguientes parámetros para inicializar las instancias de la clase Lavadora:
+
+marca
+modelo
+color
+capacidad_actual
+fecha_fabricacion
+programas_disponibles (lista de programas: por ejemplo, ["Rápido", "Económico", "Intensivo"])
+Define los siguientes métodos:
+
+encender(): Si la lavadora está apagada, debe encenderse y se debe imprimir un mensaje indicando que la lavadora se ha encendido. 
+Si ya está encendida, imprime que la lavadora ya estaba encendida.
+
+apagar(): Si la lavadora está encendida, debe apagarse y se debe imprimir un mensaje indicando que la lavadora se ha apagado.
+Si ya está apagada, imprime que la lavadora ya estaba apagada.
+
+seleccionar_programa(programa): Este método recibe como parámetro el nombre del programa a utilizar. Si el programa está en
+la lista de programas disponibles, imprime que el programa ha sido seleccionado. Si no está disponible, imprime un mensaje
+indicando que el programa no existe.
+
+Ejemplo de uso:
+Crea una instancia de la clase Lavadora.
+Intenta encender la lavadora y selecciona un programa.
+Apaga la lavadora.
+Selecciona un programa que no exista en la lista para verificar el comportamiento.
+
+"""
+
+class Lavadora:
+    
+    carga_maxima = 8
+    encendida = False
+    
+    def __init__(self, marca, modelo, color, capacidad_actual, fecha_fabricacion, programas_disponibles):
+        self.marca =marca
+        self.modelo = modelo
+        self.color = color
+        self.capacidad_actual = capacidad_actual
+        self.fecha_fabricacion = fecha_fabricacion
+        self.programas_disponibles = programas_disponibles
+
+    def encender(self):
+        if not Lavadora.encendida:
+            Lavadora.encendida = True
+            print ("la lavadora se ha encendido")
+        else:
+            print("la lavadora ya estaba encendida")
+    
+    def apagar (self):
+        if Lavadora.encendida:
+            Lavadora.encendida = False
+            print("la lavadora se apagará")
+        else:
+            print("la lavadora ya estaba apagada")
+            
+    def seleccionar_programa(self, programa):
+        if programa in self.programas_disponibles:
+            print (f"el programa {programa} ha sido seleccionado")
+        else:
+            print(f"el programa {programa} no esta disponible")         
+            
+                   
+lavadora1 = Lavadora("philips", "S34", "blanco", "120lb", 5-6-2023, ["rapido", "economico", "intensivo"])
+
+lavadora1.seleccionar_programa("rapido")
+
+"""
+Crea una clase llamada Televisor que tenga los siguientes atributos de clase:
+
+encendido: Un valor booleano que indica si el televisor está encendido o apagado 
+(por defecto False, es decir, apagado).
+volumen_maximo: Un valor numérico que indica el volumen máximo del televisor (por defecto 100).
+canal_actual: Un valor que representa el canal en el que está sintonizado el televisor (por defecto 1).
+Define el método __init__ con los siguientes parámetros para inicializar las instancias de la clase 
+Televisor:
+
+marca
+modelo
+pulgadas
+resolucion
+Además, implementa los siguientes métodos:
+
+encender_tv(): Si el televisor está apagado, debe encenderse e imprimir un mensaje indicando 
+que el televisor se ha encendido. Si ya está encendido, imprime un mensaje indicando que ya 
+estaba encendido.
+
+apagar_tv(): Si el televisor está encendido, debe apagarse e imprimir un mensaje indicando que 
+el televisor se ha apagado. Si ya está apagado, imprime un mensaje indicando que ya estaba apagado.
+
+subir_volumen(nivel): Aumenta el volumen del televisor en el nivel especificado, pero nunca 
+puede superar el volumen máximo. Si se supera, simplemente establece el volumen al máximo y 
+muestra un mensaje.
+
+bajar_volumen(nivel): Reduce el volumen en el nivel especificado, pero nunca puede ser inferior a 0. 
+Si baja de 0, simplemente lo establece en 0 y muestra un mensaje.
+
+cambiar_canal(canal): Cambia el televisor al canal indicado. Si el canal está entre 1 y 999, 
+cambia el canal y muestra el nuevo canal. Si no, muestra un mensaje indicando que el canal no es válido.
+
+"""
+            
+            
+class Televisor:
+    
+    encendido = False
+    volumen_maximo = 100
+    canal_actual = 1
+    
+    def __init__(self, marca, modelo, pulgadas, resolucion,):
+        self.marca = marca
+        self.modelo = modelo
+        self.pulgadas = pulgadas
+        self.resolucion = resolucion
+        self.volumen = 0
+        
+        
+    def encender_tv(self):
+        if not Televisor.encendido:
+            Televisor.encendido = True
+            print(f"Se ha encendido el televisor {self.modelo}")
+        else:
+            print(f"El televisor {self.modelo} ya estaba encendido")
+            
+    def apagar_tv(self):
+        if not Televisor.encendido:
+            Televisor.encendido = False
+            print(f"Se ha apagado el televisor {self.modelo}")
+        else:
+            print(f"El televisor {self.modelo} ya estaba apagado")          
+            
+            
+    def subir_volumen(self, nivel):
+        if Televisor.encendido:
+            self.volumen += nivel
+            if self.volumen > Televisor.volumen_maximo:
+                self.volumen = self.volumen_maximo
+                print(f"el volumen maximo del televisor {self.volumen} ")
+            else:
+                print(f"el volumen ha aumentado a: {self.volumen}")
+        else:
+            print(f"El televisor {self.modelo} está apagado no puede subir volumen")
+        
+            
+    def bajar_volumen(self, nivel):
+        if Televisor.encendido:
+            self.volumen -= nivel
+            if self.volumen < 0:
+                self.volumen = 0
+                print(f"el volumen del televisor es 0 ")
+            else:
+                print(f"el volumen ha reducido a: {self.volumen}")
+        else:
+            print(f"El televisor {self.modelo} está apagado no puede bajar volumen")
+            
+            
+            
+    def cambiar_canal(self, canal):
+        if  1 <= canal <= 999:
+            Televisor.canal_actual = canal
+            print(f"Televisor {self.modelo} en el canal:{Televisor.canal_actual}")
+        else:
+            print(f"canal no valido, debe estar entre 1 y 999")
+            
+Tele1 = Televisor("philips", "T3", 50, "4K")
+
+Tele1.cambiar_canal(200)        
